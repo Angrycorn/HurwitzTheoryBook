@@ -1,0 +1,1178 @@
+%
+% AMS-LaTeX 1.2 sample file for book proceedings, based on amsproc.cls.
+%
+
+\documentclass[12pt]{book}%{article}%{amsart} 
+\setcounter{chapter}{-1}
+
+\usepackage{amsfonts}
+
+%\usepackage{amsmath,amssymb,amstext,amsthm,amscd,epic,eepic}
+\usepackage{amsmath,amssymb,amstext,amsthm,amscd,mathtools,
+graphicx,float,caption,subcaption,todonotes,tikz,tikz-cd,hyperref}%natbib,
+
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+
+%\usepackage[small,nohug,heads=LaTeX]{diagrams}
+%\diagramstyle[labelstyle=\scriptstyle]
+%\newarrow {Corresponds} <--->
+%\newarrow {Equals} =====
+%\newarrow {TTo} ----{->}
+
+%\pagestyle{myheadings}
+
+%\setlength{\textheight}{27pc}
+%\oddsidemargin-0.5truecm
+%\evensidemargin-0.5truecm
+%\textwidth17.5truecm
+%\textheight23truecm
+%\topmargin-.1truecm
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Theorems
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section] 
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+
+\newtheorem*{theorem2}{Theorem}
+\newtheorem*{proposition2}{Proposition}
+\newtheorem*{lemma2}{Lemma}
+
+\newtheorem{conjecture}{Conjecture}
+
+\newtheorem*{question}{Question}
+\newtheorem*{claim}{Claim}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{examples}[theorem]{Examples}
+\newtheorem{exercise}{Exercise}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{ack}{Acknowledgements}
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{rems}{Remarks}
+\newtheorem*{ex}{Example}
+\newtheorem*{exs}{Examples}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+% Varie
+
+\def\bs{\boldsymbol}
+\def\ds{\displaystyle}
+\def\pf{{\em Proof.}\ \,}
+\def\br{\buildrel}
+\def\ov{\overline}
+\def\su{\subseteq}
+\def\co{\supseteq}
+\def\({\left(}
+\def\){\right)}
+\def\un{\underline}
+\def\nt{\noindent}
+
+% Frecce
+
+\def\inc{\hookrightarrow}
+\def\to{\rightarrow}
+\def\lto{\longrightarrow}
+\def\sur{\twoheadrightarrow}
+
+% Greek
+
+\def\om{\omega}
+\def\Th{\Theta}
+
+% \mathbb
+
+\def\bA{{\mathbb{A}}}
+\def\bC{{\mathbb{C}}}
+\def\bE{{\mathbb{E}}}
+\def\bF{{\mathbb{F}}}
+\def\bH{{\mathbb{H}}}
+\def\bN{{\mathbb{N}}}
+\def\bP{{\mathbb{P}}}
+\def\bQ{{\mathbb{Q}}}
+\def\bR{{\mathbb{R}}}
+\def\bU{{\mathbb{U}}}
+\def\bZ{{\mathbb{Z}}}
+
+% \mathcal
+
+\def\cA{{\mathcal A}}
+\def\cB{{\mathcal B}}
+\def\BL{{\mathcal BL}}
+\def\cC{{\mathcal C}}
+\def\cD{{\mathcal D}}
+\def\cE{{\mathcal E}}
+\def\cExt{{\mathcal E}xt}
+\def\cF{{\mathcal F}}
+\def\cG{{\mathcal G}}
+\def\cH{{\mathcal H}}
+\def\cHom{{\mathcal H}om}
+\def\cI{{\mathcal I}}
+\def\cL{{\mathcal L}}
+\def\cM{{\mathcal M}}
+\def\cN{{\mathcal N}}
+\def\cO{{\mathcal O}}
+\def\cP{{\mathcal P}}
+\def\cR{{\mathcal R}}
+\def\cS{{\mathcal S}}
+\def\cT{{\mathcal T}}
+\def\cTor{{\mathcal T}or}
+\def\cU{{\mathcal U}}
+\def\cW{{\mathcal W}}
+\def\cZ{{\mathcal Z}}
+
+% \widetilde
+
+\def\wt{\widetilde}
+\def\tC{{\widetilde{C}}}
+\def\tE{{\widetilde{E}}}
+\def\tH{{\widetilde{H}}}
+\def\tX{{\widetilde{X}}}
+\def\tY{{\widetilde{Y}}}
+\def\tp{{\widetilde{p}}}
+\def\tg{{\widetilde{g}}}
+\def\tTh{{\widetilde{\Theta}}}
+\def\tcA{{\widetilde{\cA}}}
+\def\tcU{{\widetilde{\cU}}}
+\def\tPic{{\widetilde{\textrm{Pic}}}}
+
+% \mathfrak
+
+\def\mP{\mathfrak{P}}
+\def\mR{\mathfrak{R}}
+\def\mU{\mathfrak{U}}
+
+% Math Text
+
+\def\ch{{\textrm{ch}}}
+\def\codim{}
+\def\coker{{\textrm{coker\,}}}
+\def\ecoker{{\emph{coker}\,}}
+\def\cone{{\textrm{cone\,}}}
+\def\Coh{{\textrm{Coh\,}}}
+\def\Ext{{\textrm{Ext\,}}}
+\def\eExt{{\emph{Ext}\,}}
+\def\Hom{{\textrm{Hom\,}}}
+\def\eHom{{\emph{Hom}\,}}
+\def\id{{\textrm{id}}}
+\def\Im{{\textrm{Im\,}}}
+\def\Re{{\textrm{Re\,}}}
+\def\rk{{\textrm{rk}}}
+
+
+\newcommand{\Proj}{{\mathbb P}^1}
+\newcommand{\PP}{{\mathbb P}^1 \times {\mathbb P}^1}
+\newcommand{\Ptoo}{{\mathbb P}^2}
+\newcommand{\PoneC}{{\mathbb P}^1({\mathbb C})}
+\newcommand{\PtwoC}{{\mathbb P}^2({\mathbb C})}
+
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+
+\newcommand{\del}{\partial}
+
+
+
+\begin{document}
+
+\title{Counting Maps of Riemann Surfaces: \\ Hurwitz Theory for Undergraduates}
+
+\author{Renzo Cavalieri and Eric Miles}
+
+\date{}
+
+\maketitle
+
+
+%\todo[inline]{change style back to amsart from article}
+%\todo[inline]{what style should this be in? does it matter?}
+
+%\begin{abstract}
+%He we have a book.
+%\end{abstract} 
+
+\tableofcontents
+
+%\listoftodos
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Introduction}
+\label{introduction}
+
+\chapter{From Complex Analysis to Riemann Surfaces}
+\label{complexAnalysis}
+
+\begin{theorem}[Open Mapping Theorem]
+\label{openMappingThm}
+\end{theorem}
+
+\begin{theorem}[Inverse Function Theorem]
+\label{inverseFunctionThm}
+\end{theorem}
+
+
+
+\chapter{Introduction to Manifolds}
+\label{manifolds}
+
+In our studies of complex analysis in Chapter \ref{complexAnalysis}, we came across the functions $\log z$ and $z^{1/2}$. We saw that if $z\neq0$ then $z^{1/2} = \{ w\ |\ w^2 = z\ \}$ has two elements. Similarly, we saw that $\log z = \{ w\ |\ e^w=z\ \}$ has infinitely many elements (specifically the set $\log z$ is in bijection with $\bZ$). In each case, in order to obtain an honest function we changed our domain from $\bC$ (minus 0) to something obtained by gluing together copies of $\bC$ (two copies for $z^{1/2}$ and a $\bZ$'s worth for $\log z$). Furthermore, these spaces we made are locally indistinguishable from $\bC$ (similar to how the earth is clearly spherical if you were standing on the moon, but if you're standing on the earth, say Kansas, it is indistinguishable from a flat surface).
+
+Note - $\bC^n$ has a natural topology, and thus, so does the identification space $(\bC^n-\vec{0})/\bC^* = \bP^{n-1}$!
+
+\begin{theorem}[Implicit Function Theorem]
+\label{implicitFunctionTheorem}
+
+\end{theorem}
+
+
+\chapter{Riemann Surfaces}
+\label{riemannSurfaces}
+
+
+
+In Chapter \ref{complexAnalysis} we saw that considering multiple-valued complex functions led us to look at geometric spaces which are copies of $\bC$ glued together in prescribed ways. In Chapter \ref{manifolds} we formally defined ``spaces formed by gluing together other spaces'' as manifolds. In this chapter, we will realize the complex spaces studied in Chapter \ref{complexAnalysis} as a particular class of manifolds, called Riemann Surfaces, and look at a number of examples.
+
+
+\section{Definition of a Riemann Surface}
+
+%There are two main ways to view a Riemann Surface. Here we define them as manifolds, but an equivalent definition is given in GIVEREF.
+Here we clarify precisely which manifolds we are interested in. They were first studied by the mathematician Bernhard Riemann and are given his name.
+
+\begin{definition}
+A \textbf{Riemann Surface} is a complex analytic manifold of dimension 1.
+\end{definition}
+
+Recall that the idea is that a Riemann Surface is something which is formed from a bunch of copies of $\bC$ glued together, and which is locally indistinguishable from $\bC$. Precisely, ``$X$ is a Riemann Surface'' means...
+
+\begin{enumerate}
+\item $X$ is a Hausdorff topological space
+\label{hausdorffCondition}
+
+\item For all $x \in X$ there is a homeomorphism $\varphi_x:U_x \to V_x$ where $U_x$ is an open neighborhood of $x \in X$ and $V_x$ is an open set in $\bC$
+\label{localCharts}
+
+
+\item For any $U_x,U_y$ such that $U_x \cap U_y \neq \varnothing$ the transition function $T_{y,x}:\varphi_x(U_x \cap U_y) \to \varphi_y(U_x \cap U_y)$ is holomorphic
+\label{transitionFunctions}
+\end{enumerate}
+
+
+\missingfigure{Figure 1 - donut $X$ with two coordinate charts intersecting}
+\begin{figure}
+\label{riemannSurfaceManifoldPic}
+\end{figure}
+
+
+Recall that the pair $(U_x, \varphi_x)$ is called a \textbf{local chart}, and the function $\varphi_x$ is called a \textbf{local coordinate function}. Note that the \textbf{transition function} $T_{y,x}$ is just going backwards using one local coordinate function and forwards using the other, i.e. $T_{y,x} = \varphi_y \circ \varphi_x^{-1}$ restricted to the domain $\varphi_x(U_x \cap U_y)$.
+\todo[inline]{make sure this is a ``recall''}
+
+\section{Examples of Riemann Surfaces}
+
+To understand a mathematical concept, one must understand many examples. We consider a number of examples of Riemann Surfaces here, and begin by showing that the geometric spaces we constructed as domains for $z^{1/2}$ and $\log z$ are, in fact, Riemann Surfaces.
+
+\subsection{Domains of $z^{1/2}$ and $\log z$}
+
+\begin{example}
+In Chapter \ref{complexAnalysis}, to create an honest domain $X$ for the function $z^{1/2}$ we glued together two altered copies of $\bC$. Here we present $X$ as a Riemann surface by gluing together four open sets of $\bC$. 
+
+Let $U_1=U_3:=\bC - \{z\in\bC | \Im z > 0, \Re z =0 \}$, and let $U_2=U_4:=\bC - \{z\in\bC | \Im z < 0, \Re z =0 \}$. These sets have topologies induced from $\bC$. We now define open sets $U^L_i,U^R_i \subset U_i$ which we identify to form the topological space $X$ (the $L$ and $R$ stand for ``left'' and ``right''). Let $U^L_1 := \{z \in U_1 | \Re z < 0 \}$ and $U^R_1 := \{z \in U_1 | \Re z > 0 \}$. Similarly, define $U^L_i$ and $U^R_i$ for $i=2,3,4$. Figure \ref{creatingRSForSquareRoot} is what we have so far - note that the figure includes the gluing maps which are introduced directly afterward.
+
+\missingfigure{Figure 2 - the 4 open sets of $\bC$ with gluing maps}
+\begin{figure}
+\label{creatingRSForSquareRoot}
+\caption{$X$ as an identification space}
+\end{figure}
+
+Define the map $r_{21}:U^R_1 \to U^R_2$ by $r_{21}(z)=z$. Similarly, define the map $l_{32}:U^L_2 \to U^L_3$ by $l_{32}(z)=z$. Continuing this pattern, we define the maps $r_{43}$ and $l_{14}$. We now define $X$ topologically as the identification space
+\[
+X:= \bigsqcup_{l,r} U_i
+\]
+The above expression is short-hand and is meant to include $i=1,2,3,4$ and each of the $l$ and $r$ maps (e.g. $l_{21}$) defined above. The idea is that we have glued the set $U^R_1$ to the set $U^R_2$ in the simplest possible way, and we have similarly glued the other sets. 
+
+\begin{exercise}
+Prove that the sets $[U_i] := \{ [z] \in X | z \in U_i \}$ are open sets in $X$. Show that the collection $\{[U_i]\}_i$ covers $X$.
+\end{exercise}
+
+
+\begin{exercise}
+Consider as many pairs of points $[x],[y] \in X$ as you need to to convince yourself that $X$ is a Hausdorff topological space.
+\end{exercise}
+
+Since we have our topological space, we now discuss local charts. For $i=1,2,3,4$ define the local coordinate function $\varphi_i:[U_i] \to \bC$ by $\varphi_i([z])=z$. 
+
+\begin{exercise}
+\label{localChartsForSquareRoot}
+Show that $\varphi_2$ is well-defined. Show that $\varphi_2$ is a homeomorphism onto its image in $\bC$.
+\end{exercise}
+
+Since the open sets $[U_i]$ cover $X$, Exercise \ref{localChartsForSquareRoot} shows that point \ref{localCharts} above is satisfied. All that is left is to show that the transition functions are holomorphic. We consider one transition function - all others involve similar work and can be considered by the reader if they would like.
+
+The intersection $[U_1] \cap [U_2]$ is non-empty. In fact we have $[U_1] \cap [U_2] = [U^R_1] = [U^R_2]$. The associated transition function $T_{21}$ has as its domain the set $\varphi_1([U_1] \cap [U_2]) = \{z \in \bC|\Re z > 0\} =: V$. Let us see what $T_{21}=\varphi_2 \circ \varphi_1^{-1}$ does to a $z \in V$:
+\[
+z \stackrel{\varphi_1^{-1}}{\longmapsto}
+[z] = [r_{21}(z) = z] 
+\stackrel{\varphi_2}{\longmapsto}
+z
+\]
+So $T_{21}(z)=z$ and hence is holomorphic. We have shown that $X$ is a Riemann Surface!
+\end{example}
+
+\todo[inline]{it's actually not necessary to have these 4 $U_i$ sets to start - you could use the two used in chapter 1 to get your topological space}
+
+\todo[inline]{should we add some sort of comment about being careful here? - i.e. how do we know that the $X$ we defined here is the exact same as the one from chapter 1}
+
+\noindent\hrulefill
+
+\begin{exercise}
+Show that the domain constructed in Chapter \ref{complexAnalysis} as an honest domain for the function $\log z$ is a Riemann Surface. \textit{Hint: The construction is very similar to the one for $z^{1/2}$, but you will start with sets $U_i$ for each $i \in \bZ$.}
+\end{exercise}
+
+
+
+\todo[inline]{Perhaps we should mention that one way to give a Riemann Surface is to give the charts with transition functions? (i.e. and have the topology be induced from this setup) That would save some writing later on...}
+
+
+\subsection{Graphs of complex functions $f(z)$}
+
+\begin{example}
+\label{graphsAreRSExample}
+A class of examples of Riemann Surfaces are given by graphs of continuous complex functions. Specifically, let $f(z)$ be a continuous function mapping $\bC$ to $\bC$. The graph of $f$ is the set $\Gamma_f:=\{(z,f(z)) | z \in \bC \} \subset \bC\times \bC$ given the subspace topology. Note that $\Gamma_f$ is Hausdorff since $\bC\times\bC$ is.
+
+\missingfigure{Figure 3 - a schematic picture of a graph of $f(z)$}
+\begin{figure}
+\label{schematicGraph}
+\end{figure}
+
+To give the graph of $f$ the structure of a Riemann Surface, we only use one chart, namely all of $\Gamma_f$. We claim that the projection map $\varphi:=\pi|_{\Gamma_f}$ which sends $(z,f(z))$ to $z$ is our local coordinate function. For this to be true, $\varphi$ must be a homeomorphism onto its image (which is all of $\bC$). We check that both $\varphi$ and $\varphi^{-1}$ are continuous.
+
+The map $\varphi=\pi \circ i$ is the composition of $i:\Gamma_f \to \bC\times\bC$, the natural inclusion of $\Gamma_f$ into $\bC\times\bC$, and $\pi:\bC\times\bC \to \bC$, the projection onto the first factor. Both $i$ and $\pi$ are continuous maps, and thus so is $\varphi$.
+
+In the other direction, we must show that $\varphi^{-1}$ is continuous. This is equivalent to showing that $\varphi$ is an open map, i.e. that if $U$ is open in $\Gamma_f$, then $\varphi(U)$ is open. (If you don't see why these are equivalent, take a minute and check it!) By the definition of the subspace topology we have $U=V \cap \Gamma_f$ where $V$ is an open set in $\bC \times \bC$. Since a basis for the topology of $\bC \times \bC$ is given by the sets of the form $B_{\epsilon'}(x) \times B_{\epsilon''}(y)$, for our proof we may assume that $V$ has this form, i.e. we may assume that 
+\[
+U=\left( B_{\epsilon'}(x) \times B_{\epsilon''}(y) \right) \cap \Gamma_f
+\]
+In other words, if we can show that the image via $\varphi$ of this specific $U$ is open, it will imply that $\varphi$ is an open map. Now, to show that $\varphi(U)$ is open, we take a point $z_0 \in \varphi(U)$ and find a neighborhood $z_0 \in U_{z_0}\subset \varphi(U)$.
+
+If $U=\varnothing$ then $\varphi(U)=\varnothing$ which is open, so we are done. Suppose now that $(z_0, f(z_0) \in U$. Then $z_0 \in B_{\epsilon'}(x)$ and $f(z_0) \in B_{\epsilon''}(y)$. 
+
+\begin{exercise}
+Complete this proof by finding a neighborhood $U_{z_0}\subset \bC$ such that $\varphi^{-1}(U_{z_0}) \subset U$. Note that this implies that $U_{z_0} \subset \varphi(U)$. \textit{Hint: $f$ continuous at $z_0$ means that for any $\epsilon$, there is a $\delta$ such that $z \in B_\delta(z_0)$ implies that $f(z) \in B_\epsilon(f(z_0))$}.
+\end{exercise}
+
+Since we only have one chart, we have no transition functions. Thus $\Gamma_f$ is a Riemann Surface. Once we discuss maps (and in particular, isomorphisms) of Riemann Surfaces in Section MAKEREF we will see that all graphs are isomorphic to the Riemann Surface $X=\bC$.
+\end{example}
+
+\todo[inline]{do you need $f$ holomorphic to get that $\Gamma_f \cong \bC$? or is $f$ continuous still ok?}
+
+
+\subsection{Zero sets}
+
+\begin{example}
+\label{regularValueExample}
+In Chapter \ref{manifolds} we saw that the Implicit Function Theorem (Theorem \ref{implicitFunctionTheorem}) allowed us to find manifolds using regular values. Specifically, if $f:\bC^{n+1} \to \bC^n$ is a smooth map such that $\vec{0}\in\bC^n$ is a regular value of $f$, then $f^{-1}(0)$ is complex analytic manifold of dimension 1, i.e. a Riemann Surface.
+\end{example}
+\todo[inline]{Make sure that what I said is true after writing the mflds chapter}
+
+\noindent\hrulefill
+
+The next example is actually a particular case of Example \ref{regularValueExample}. However, it is both important and down-to-earth, so we take the time to discuss it.
+
+\begin{example}
+\label{smoothCurveExample}
+Let $p(x,y)\in\bC[x,y]$, i.e. $p$ is a polynomial in two variables over the complex numbers. The set $\{(x,y)|p(x,y)=0\}=:V(p)$ is a subset of $\bC^2$ and we expect $V(p)$ to be a curve, i.e. have dimension 1 over $\bC$. (For an analogy, recall that over the real numbers, $V(x^2+y^2-1)$ is the unit circle, lives in $\bR^2$, and has real dimension 1.) We say that $V(p)$ is \textbf{smooth} if there is no $(x_0,y_0)\in V(p)$ such that $\frac{\del p}{\del x}(x_0,y_0) =0 = \frac{\del p}{\del y}(x_0,y_0)$. The key statement is that if $V(p)$ is smooth, then it is a Riemann Surface.
+
+The idea is that if $V(p)$ is smooth, then locally it can be seen as a graph, and these local expressions patch together well. To be precise, let $(x_0,y_0)\in V(p)$. Since $V(p)$ is smooth, we know that at least one of $\frac{\del p}{\del x}, \frac{\del p}{\del y}$ is non-zero at $(x_0,y_0)$. Say that $\frac{\del p}{\del y}(x_0,y_0)\neq 0$. Since $p(x,y)$ defines a smooth function $p:\bC^2 \to \bC$, the Implicit Function Theorem says that there is a neighborhood $U_{(x_0,y_0)} \subset \bC^2$, a neighborhood $V_{x_0}\subset\bC$, and a holomorphic function $f(x):V_{x_0} \to \bC$ such that $V(p) \cap U_{(x_0,y_0)} = \{(x,f(x))|x\in V_{x_0}\}$ which is the graph of $f$.
+
+Using this information, we get a local chart on $V(p)$ around $(x_0,y_0)$. Specifically, we have $\varphi_{(x_0,y_0)}:V(p) \cap U_{(x_0,y_0)} \to U_{x_0}$ with $\varphi_{(x_0,y_0)}(x,f(x)) = x$. From Exercise \ref{graphsAreRSExample} we know that $\varphi_{(x_0,y_0)}$  is a homeomorphism. Note that  $\varphi_{(x_0,y_0)}$ is just $\pi_x$ (projection onto the $x$ coordinate) with a restricted domain.
+
+\missingfigure{Figure 4 - A schematic picture of a curve in the plane}
+\begin{figure}
+\label{schematicCurve}
+\end{figure}
+
+\begin{exercise}
+Finish showing that $V(p)$ is a Riemann Surface by checking that the transition maps are holomorphic. \textit{Hint: Start by assuming that a chart at $(x_0,y_0)$ intersects a chart at $(x_1,y_1)$. You now have three cases to consider corresponding to whether each chart gets coordinates from the variable $x$ or $y$.}
+\end{exercise}
+
+\end{example}
+
+
+\section{Compact Riemann Surfaces}
+
+%something about them being nice
+So far the examples of Riemann Surfaces we have all been non-compact. If your Riemann Surface happens to be compact, you can say a lot about it, and some very useful theorems apply only in this context, e.g. the Riemann-Hurwitz Formula (Theorem MAKEREF). We consider two examples of compact Riemann Surfaces beginning with the complex projective line, $\PoneC$. 
+
+\subsection{Complex Projective Line}
+\begin{example}
+\label{complexProjectiveLine}
+Recall that $\bP^1(\bR)$ was introduced in Chapter \ref{manifolds} using lines through $\vec{0} \in \bR^2$. One can carry out an analogous construction using $\bC$ to obtain $\PoneC$. However, here we present $\PoneC$ as a Riemann Surface by gluing together two copies of $\bC$.
+
+Let $U_1=U_2:=\bC$ and define $g:U_1-\{0\} \to U_2-\{0\}$ by $g(z) = 1/z$. We define $\PoneC$ topologically as the identification space
+\[
+\PoneC:= U_1 \bigsqcup_{g} U_2
+\]
+The idea is to have two copies of $\bC$ standing side-by-side.  Then, holding both $0$'s still, fold the copies towards each other, identifying each non-zero point to a point on the other copy.
+
+\begin{exercise}
+\label{topologyOfP1C}
+Show that, as a set, $\PoneC$ is $\bC$ plus a point. Prove that $\PoneC$ is a Hausdorff topological space. Convince yourself that $\PoneC$ is topologically a sphere. In fact, it is called the ``Riemann Sphere.''
+\end{exercise}
+
+\todo[inline]{Is ``proving'' Hausdorff too cumbersome to do?}
+
+Note that each $[U_i]$ is open in $\PoneC$. Define the local coordinate function $\varphi_1: [U_1] \to \bC$ by $\varphi_1([z])=z$ if $z \in U_1$. Similarly, define $\varphi_2$. Both maps are homeomorphisms (can you explain why? If not, take a minute and write it out!).
+
+We now consider transition functions - specifically, we consider $T_{21}$. The intersection $[U_1]\cap[U_2]=[U_1-\{0\}]=[U_2-\{0\}]=\bC-\{0\}$. This is domain of $T_{21}=\varphi_2 \circ \varphi_1^{-1}$ and for $z\neq0$ we have
+\[
+z \stackrel{\varphi_1^{-1}}{\longmapsto}
+[z] = [g(z) = 1/z] 
+\stackrel{\varphi_2}{\longmapsto}
+1/z
+\]
+Since $T_{21}$ has a pole only at $z=0$ it is holomorphic on $\bC-\{0\}$. A completely symmetric computation shows that $T_{12}$ is holomorphic, and we have that $\PoneC$ is a Riemann Surface.
+\end{example}
+
+\todo[inline]{Argue somewhere why $\PoneC$ is compact?}
+
+\noindent\hrulefill
+
+
+\begin{exercise}
+One can take the $U_1$ and $U_2$ of Example \ref{complexProjectiveLine} and glue them together using $\tilde{g}:U_1-\{0\} \to U_2-\{0\}$ where $\tilde{g}(z)=z$. Show that the resulting topological space, $X=U_1 \sqcup_{\tilde{g}} U_2$, is not Hausdorff (and thus is \textit{not} a Riemann Surface!). It is often called the ``complex plane with doubled-origin'' - do you see why? Draw a picture!
+\end{exercise}
+
+\subsection{Complex Tori}
+
+\begin{example}
+An important class of examples of compact Riemann Surfaces are called complex tori. In our discussion, we sacrifice generality to make the example as explicit as possible.
+
+We begin by choosing a lattice of complex numbers. Let $\Lambda = \{n+m\tau | n,m \in \bZ, \tau \in \bC-\bR\} \subset \bC$. For the sake of concreteness, choose $\tau = 1/2+i$. We form the quotient space $T=\bC/\Lambda$, i.e. the identification space $T=\bC/\sim$ where $z_1 \sim z_2$ iff $z_2 = z_1 + w$ for some $w\in\Lambda$. We have a natural projection map $\pi:\bC \to T$ given by $\pi(z)=[z]$ and we induce a topology on $T$ via this map, i.e. $V\subset T$ is open in $T$ iff $\pi^{-1}(V)$ is open in $\bC$.
+
+\begin{exercise}
+\label{fundamentalRegion}
+Show that for any $z\in\bC$ there is a $z'\in P$ with $z \sim z'$ where $P$ is the closed parallelogram with vertices $0, 1, 1/2+i\ (= \tau), 3/2+i\ (= 1 + \tau)$. This shows that $\pi|_P:P \to T$ is onto, and hence we can restrict our attention to $P$ in order to understand the geometry of $T$.
+\end{exercise}
+
+By considering the identification of points within $P$ (defined in Exercise \ref{fundamentalRegion}) we can see that $T$ is topologically a torus. To see this, note that if $z$ is in $P$ but is not on the boundary, i.e. if $z\in P-\del P$, then $z \nsim z'$ for any $z'\neq z$ in $P$. But if $z$ is on the left-side boundary (the line segment through $0$ and $\tau$) then $z \sim z+1\in P$. Also, if $z$ is on the bottom-side boundary (the line segment through $0$ and $1$) then $z \sim z+\tau \in P$. One can similarly find the identifications for points on the top or right-side boundary, or one can simply deduce them from the above computations.
+
+%talk about the identification polygon
+We can therefore characterize the topology of $T$ using the  identification polygon pictured in Figure \ref{identPolygonForTorus}.
+
+\missingfigure{Figure 5 - The torus' ident. polygon and a torus, both with ``circles'' drawn}
+\begin{figure}
+\label{identPolygonForTorus}
+\end{figure}
+
+You can think of the identification as telling you how to fold and glue a piece of paper. Here the instructions are to take $P$, fold the top and bottom edges together and glue them so that you have a tube, then bring the circular edges of the tube together and glue them. What we end up with is a torus. 
+
+Let us now discuss how $T$ is a Riemann Surface.
+\begin{exercise}
+\label{piIsOpen}
+We already know that $\pi:\bC \to T$ is a continuous map. Prove that $\pi$ is an open map, i.e. that $V$ open in $\bC$ implies that $\pi(V)$ is open in $T$.
+\end{exercise}
+
+Exercise \ref{piIsOpen} shows that if $\pi$ restricted to a subset $V\subset\bC$, i.e. $\pi|_V$,  is one-to-one, then it is a homeomorphism onto its image in $T$. In this case $\pi|_V^{-1}$ is also a homeomorphism from the image of $\pi|_V$ to  $V$, and we may use $\pi|_V^{-1}$ as a chart of $T$.
+
+To form our atlas, we only consider sets $V=B_\epsilon(z)\subset \bC$. 
+\begin{exercise}
+\label{boundForToriCharts}
+Find a real number $b$ such that $\epsilon<b$ implies that for any z, $\pi$ restricted to $B_\epsilon(z)$ is a one-to-one map. Prove that your $b$ works! \textit{Hint: What can be said about $z_1,z_2\in B_\epsilon(z)$  if $\pi(z_1) = \pi(z_2)$?}
+\end{exercise}
+
+Assuming we have found a $b$ in Exercise \ref{boundForToriCharts}, then for each $B_\epsilon(z)=:B$ with $\epsilon<b$ we have a chart $\varphi_{z,\epsilon}:=\pi|_B^{-1}:\text{image}(\pi|_B) \to B$. We now consider transition functions.
+
+To aid our discussion we introduce the notation $I(z,\epsilon):= \text{image}(\pi|_{B_\epsilon(z)})$. Note that for a chosen $I(z,\epsilon)$ we have infinitely many charts: If $w\in\Lambda$ then $I(z,\epsilon)=I(z+w,\epsilon)$ and so we have a chart $\varphi_{z+w,\epsilon}$ for each $w\in\Lambda$.
+
+\missingfigure{Figure 6 - $\bC$ with a grid, and a torus with a few charts for an $I(z,\epsilon)$}
+\begin{figure}
+\label{chartsForTorus}
+\end{figure}
+
+
+\begin{exercise}
+Suppose that $I(z,\epsilon) \cap I(z',\epsilon') \neq \varnothing$. Choose a chart $\varphi_{z+w,\epsilon}$ for $I(z,\epsilon)$ and a chart $\varphi_{z'+w',\epsilon}$ for $I(z',\epsilon)$. Find the associated transition function and show that it is holomorphic. \textit{Hint: Draw a picture!}
+\end{exercise}
+
+We have shown that the complex torus $T$ is a Riemann Surface.
+
+\end{example}
+
+\todo[inline]{include exercise where they find the $b$ (from Exercise \ref{boundForToriCharts}) for a general $\Lambda = \{n\mu+m\tau\}$?}
+
+
+
+
+
+\chapter{Maps of Riemann Surfaces}
+
+In mathematics, perhaps even more important than having interesting objects or spaces to work with, is having maps that relate them. We also want these maps to relate their domain and target objects in a meaningful way, making use of whatever structure we have at our disposal. In this chapter, we define the maps of interest between Riemann Surfaces and give a number of examples.
+
+\section{Holomorphic maps of Riemann Surfaces}
+
+Since Riemann Surfaces are complex analytic manifolds, maps of Riemann Surfaces are simply maps of such manifolds - we call such a map a holomorphic map of Riemann Surfaces. Because Riemann surfaces are locally indistinguishable from $\bC$, maps of Riemann Surfaces locally are holomorphic maps from $\bC$ to $\bC$ and as a result, many results from complex analysis carry over to the setting of Riemann Surfaces (see Section MAKEREF). 
+
+
+
+\begin{definition}
+\label{holomorphicMapsOfRS}
+Let $X,Y$ be Riemann Surfaces and $f:X \to Y$ a function of sets. 
+\begin{enumerate}
+\item We say that $f$ is \textbf{holomorphic at} $x\in X$ if for every choice of charts $\varphi_x, \varphi_{f(x)}$ the function $\varphi_{f(x)} \circ f \circ \varphi_x^{-1}$ is holomorphic at $x$.
+
+\item If $U\subset X$ is open, we say that $f$ is \textbf{holomorphic on }$U$ if $f$ is holomorphic at each $x\in U$.
+
+\item If $f$ is holomorphic on $U=X$ we simply say that $f$ is a \textbf{holomorphic map}.
+\end{enumerate}
+\end{definition}
+
+
+\missingfigure{Figure 7- a schematic picture of a map of RS's with local expression}
+\begin{figure}
+\label{schematicMapOfRS}
+\end{figure}
+
+The function $\varphi_{f(x)} \circ f \circ \varphi_x^{-1}$ is called a \textbf{local expression} for $f$. From Definition \ref{holomorphicMapsOfRS} it would seem that in order to show a function $f$ is a holomorphic map, one must check the local expression for all possible combinations of local charts. However, the Exercise \ref{oneLocalExpressionSuffices} shows that if suffices to find one local expression that works.
+
+\begin{exercise}
+\label{oneLocalExpressionSuffices}
+Show that a map of Riemann Surfaces $f:X \to Y$ is holomorphic at $x\in X$ iff there is \textit{a} choice of charts $\varphi_x, \varphi_{f(x)}$ such that $\varphi_{f(x)} \circ f \circ \varphi_x^{-1}$ is holomorphic at $x$. Write and prove the corresponding statement for a map $f$ being holomorphic on an open $U\subset X$.
+\end{exercise}
+
+
+\begin{example}
+\label{xSquaredOnP1C}
+Recall from Exercise \ref{topologyOfP1C} that, as a set, $\PoneC = \bC$ plus a point. Identifying $\bC = \varphi_1([U_1])$, we have that the ``point'' is $[0]$ for $0\in U_2$. We denote this point by $\infty$ and thus have $\PoneC = \bC \cup \{\infty\}$. Using this identification, define the function $f:\PoneC \to \PoneC$ by $z \mapsto z^2$ and $\infty \mapsto \infty$. We show that $f$ is a holomorphic map.
+
+To aid in our discussion, call the domain projective line $A$ and the target projective line $B$, i.e. $f:A \to B$ where $A=B=\PoneC$. Since we have identified $\bC=\varphi_1([U_1])\subset \PoneC$, then the local expression of $f$ using the coordinates given by $\varphi_1$ on $A$ and $\varphi_1$ on $B$ is $z \mapsto z^2$. Since $z \mapsto z^2$ is holomorphic for all $z\in\bC$, the map $f$ is holomorphic for all $[z] \in [U_1]$ (to conclude this, we used Exercise \ref{oneLocalExpressionSuffices}).
+
+All that is left to consider is whether $f$ is holomorphic at $\infty$. We must consider the local expression for $f$ using charts for $\infty \in A$ and $f(\infty)=\infty \in B$. Since $\infty = [0]$ for $0\in U_2$, we use the charts given by $\varphi_2$ for $A$ and $\varphi_2$ for $B$. 
+
+Let $0 \neq z\in\varphi_2([U_2])$. To see where $z$ is sent via $f$ in the coordinates chosen on $B$, we must first associate $z$ to a $w$ for some $w\in \varphi_1([U_1])$. Then we may apply the rule for $f$ given at the beginning of this example. The image, $w^2$, is in the $\varphi_1$ coordinates for $B$, and so me must finally transition to $\varphi_2$ coordinates. We carry out this process below.
+
+\[
+0 \neq z \stackrel{T_{12}}{\longmapsto}
+1/z
+\stackrel{f}{\longmapsto}
+(1/z)^2 = 1/{z^2}
+\stackrel{T_{21}}{\longmapsto}
+1/(1/{z^2}) = z^2
+\]
+
+Since $\infty=0$ in $\varphi_2$ coordinates, the local expression of $f$ using $\varphi_2$ coordinates for both $A$ and $B$ is (also) $z \mapsto z^2$. This is holomorphic at $0$, and hence $f$ is a holomorphic map.
+\end{example}
+
+\noindent\hrulefill
+
+\begin{exercise}
+\label{polynomialMapsOfPoneC}
+Choose $a,b,c \in \bC$ and consider the polynomial $p(z) = (z-a)(z-b)(z-c)$. (Note that any cubic polynomial over $\bC$ can be written in this form.) Prove that the function $f: \PoneC \to \PoneC$ given by $z \mapsto p(z)$ and $\infty \mapsto \infty$ is a holomorphic map, where we again identify $\PoneC = \bC \cup \{\infty\}$ as in Example \ref{xSquaredOnP1C}.
+\end{exercise}
+
+\begin{exercise}
+Let $X,Y$ be Riemann Surfaces and choose a point $y_0\in Y$. Define the constant map $c:X \to Y$ by $c(x) = y_0$ for all $x \in X$. Show that $c$ is a holomorphic map.
+\end{exercise}
+
+
+\begin{exercise}
+Let $X$ be a Riemann Surface. Define the \textbf{identity map} on $X$ as the function $I_X:X \to X$ such that $I_X(x)=x$ for all $x\in X$. Prove that $I_X$ is a holomorphic map.
+\end{exercise}
+
+
+\begin{definition}
+\label{isomorphicRS}
+Two Riemann Surfaces $X,Y$ are called \textbf{isomorphic} (or \textbf{bi-holomorphic}) if there are holomorphic maps $f:X \to Y$ and $g:Y \to X$ such that $g \circ f = I_X$ and $f \circ g = I_Y$. In this case, we write $X \cong Y$ and call $f$ and $g$ \textbf{isomorphisms} (or\textbf{ bi-holomorphisms}). If $h:X \to X$ is an isomorphism, then we call $h$ an \textbf{automorphism} of $X$.
+\end{definition}
+
+\begin{exercise}
+Let $X,Y$ be Riemann Surfaces. Show that $X \cong Y$ (from Definition \ref{isomorphicRS}) iff there is a holomorphic map $f:X \to Y$ that is one-to-one and onto, and such that $f^{-1}$ is holomorphic.
+\end{exercise}
+
+\begin{exercise}
+Let $f:\bC \to \bC$ be a holomorphic function and $\Gamma_f \subset \bC^2$ its graph (as defined in Example \ref{graphsAreRSExample}). Show that $\Gamma_f \cong \bC$.
+\end{exercise}
+
+\section{Structure of Maps}
+
+When considering what a holomorphic map of Riemann Surfaces $f:X \to Y$ looks like ``near'' an $x \in X$, we may choose whatever charts around $x$ and $f(x)$ that we like. And we have many to choose from: given a local coordinate function $\varphi_x$, we can post-compose with any bi-holomorphism $h$ of $\bC$ to obtain a new local coordinate function $h \circ \varphi_x$. For example, choosing $h:z \mapsto e^{(\pi/4)i}z$ would rotate the old coordinates by $45$ degrees, or choosing $h: z \mapsto z+(2+i)$ will give translated coordinates.
+
+In fact, the map $h$ doesn't need to be bi-holomorphic on all of $\bC$ - as long as it is bi-holomorphic ``near'' the point $\varphi_x(x)$, you can use $h \circ \varphi_x$ to get new coordinates around $x$.
+
+
+It turns out that for any holomorphic map $f$, there is always a choice of coordinates so that the local expression of $f$ around a given $x\in X$ is very nice - specifically, it is $z \mapsto z^k$ for some $k\geq 1$. We first describe why this is the case, then state a number of consequences and carry out examples.
+
+\subsection{Local Expression as $z^k$}
+
+Our desired charts will use branches of $k^\text{th}$-root functions, so we discuss these first. 
+
+Let $k \geq 1$ be an integer and consider the function $f:\bC \to \bC$ defined by $f(z)=z^k$. If we give the target $\bC$ coordinates $w$ we may write $f$ as $w=z^k$. (This is in complete analogy with writing the real-valued function $p(x) = x^+1$ as $y=x^2+1$.) 
+
+Recall from the Inverse Function Theorem (Theorem \ref{inverseFunctionThm}) that for any $z_0$ such that $f'(z_0) \neq 0$, there is a local inverse function around $f(z_0)=z_0^k=:w_0$. Now $f'(z)=kz^{k-1}$, so the Inverse Function Theorem gives information for $z\neq 0$. 
+
+Note that $z \neq 0$ implies $z^k=w \neq 0$ and for any $w_0 \neq 0$ there is a $z_0$ with $z_0^k=w_0$ (in fact, there are $k$ such $k^\text{th}$-roots of $z_0$!). Thus, what the Inverse Function Theorem tells us in our situation is that for any $w_0 \neq 0$ and $z_0$ such that $z_0^k=w_0$ there is a holomorphic function $f_{z_0}^{-1}$ defined in a neighborhood $U$ of $w_0$ such that $f_{z_0}^{-1}(w_0) = z_0$ and $f \circ f_{z_0}^{-1}(w) = w$ for all $w\in U$. This is described as choosing a branch of the $k^\text{th}$-root function $z=w^{1/k}$ near $w_0$.
+
+\missingfigure{Figure 8 - Domain and Range of $w=z^k$ with branch of $k^\text{th}$-root chosen}
+\begin{figure}
+\label{branchOfKthRootPic}
+\end{figure}
+
+Furthermore, if $g(z)$ is a holomorphic function from $\bC$ to $\bC$, then for any $z_0$ such that $g(z_0) \neq 0$, there is a choice of branch so that, near $z_0$, the map $g(z)^{1/k}$ is well-defined and holomorphic. We also denote this function by $\sqrt[k]{g(z)}$.
+
+We are now ready to state the theorem (after a quick definition) which shows that a nice local expression of a holomorphic map can always be found.
+
+\begin{definition}
+A chart $(U_x, \varphi_x)$ for a Riemann Surface $X$ is called \textbf{centered at} $x$ if $\varphi_x(x) = 0$.
+\end{definition}
+
+\begin{theorem}
+\label{zToTheKCharts}
+Let $f:X \to Y$ be a non-constant holomorphic map of Riemann Surfaces. For any $x \in X$ there are charts given by $\tilde{\varphi}, \tilde{\psi}$ centered at $x, f(x)$ respectively, such that the local expression of $f$ using these charts is $z \mapsto z^k$ for some integer $k \geq 1$.
+\end{theorem}
+\todo[inline]{Do we want to state that a holomorphic map, for us is non-constant? or just keep qualifying as we go?}
+\begin{proof}
+Choose charts $\varphi, \psi$ centered at $x, f(x)$. Call the corresponding local expression $F:= \psi \circ f \circ \varphi^{-1}$. Since $F(0)=0$, near $0$ we may write $F(z) = 0 + a_1 z + \cdots + a_n z^n + \cdots$. Let $k$ be the smallest positive integer such that $a_k \neq 0$. Then $F(z) = a_k z^k + a_{k+1} z^{k+1} + \cdots = z^k(a_k + a_{k+1} z + \cdots )$. 
+
+Set $G(z) = a_k + a_{k+1} z + \cdots$. Then $G(z)$ is holomorphic at $0$ and $G(0) = a_k \neq 0$. Thus we may make a  choice of branch so that the map $\sqrt[k]{G(z)}$ is well-defined and holomorphic around $0=\varphi(x)$.
+
+\begin{exercise}
+\label{kthRootChart}
+Define $h(z) = z\sqrt[k]{G(z)}$. We know that $h$ holomorphic in a neighborhood $U$ of $0=\varphi(x)$. Show that $h(0) = 0$ and that $h'(0) \neq 0$. Use the Inverse Function Theorem to conclude that $h$ is bi-holomorphic on a neighborhood $U' \subset U$ of $\varphi(x)$. \textit{Hint: Use the product formula to compute $h'$, but don't try to explicitly compute $\frac{d}{dz} \sqrt[k]{G(z)}$.}
+\end{exercise}
+
+Exercise \ref{kthRootChart} gives new coordinates $\tilde{\varphi} = h \circ \varphi$ for $x\in X$. We claim that using the coordinates $\tilde{\varphi}$ for $x$ and $\tilde{\psi}:=\psi$ for $f(x)$ gives the local expression $\tilde{F}:z \mapsto z^k$.
+
+\missingfigure{Figure 9 - Altered charts to get $z^k$ local expression}
+\begin{figure}
+\label{zToTheKChartsFigure}
+\end{figure}
+
+To see this, note that $\tilde{F} = F \circ h^{-1}$. Any $z$ in the domain of $h^{-1}$ can be written as $z=h(w)=w\sqrt[k]{G(w)}$ for a unique $w\in U'$. Thus $\tilde{F}(z) = F(h^{-1}(z)) = F(w) = w^k G(w)$, i.e. we have $\tilde{F}:z=w\sqrt[k]{G(w)} \mapsto w^k G(w) = (w\sqrt[k]{G(w)})^k = z^k$.
+\end{proof}
+
+\todo[inline]{I'm not 100\% sure that what I said to conclude $\tilde{F}(z) = z^k$ is legitimate...}
+
+Before moving on, we note that it can be shown that the $k$ associated to a map $f$ and $x\in X$ is well-defined. In other words, if there are other charts around $x$ such that the local expression of $f$ around $x$ is $z \mapsto z^{k'}$ then $k=k'$.
+
+\subsection{Ramified Covers and the Riemann-Hurwitz Formula}
+Here we introduce some terminology relating to the nice local expressions of holomorphic maps given in Theorem \ref{zToTheKCharts} and state a number of results.
+
+Whether or not a Riemann Surface is compact is a valuable piece of information, as a number of results (including the important Riemann-Hurwitz Formula) require compact Riemann Surfaces. Because of this, we mention a result which completely describes the topology of a compact Riemann surface in terms of a single invariant called its genus. See Appendix \ref{classificationOfSurfaces} for the classification of compact, connected topological surfaces, from which the result follows.
+
+\begin{remark}
+If $X$ is a compact Riemann Surface, then topologically $X$ is a ``donut'' shell with $g=g_X$ holes. The number $g$ is called the genus of $X$. Two Riemann Surfaces $X,Y$ are topologically the same (homeomorphic) iff $g_X=g_Y$.
+\end{remark} 
+
+\missingfigure{Figure 10 - Donuts}
+\begin{figure}
+\label{donutsFigure}
+\end{figure}
+
+Thus, one way to think of Riemann Surfaces is as a (possibly multi-holed) donut together with a complex structure, i.e. a local identification with $\bC$.
+
+Recall from Theorem \ref{zToTheKCharts} that around any $x \in X$ a holomorphic map $f:X \to Y$ can be given the local expression $z \mapsto z^k$ for some $k \geq 1$. Of special interest are points $z$ where the corresponding $k$ is $2$ or more. We give some terminology to that effect.
+
+\begin{definition}
+Let $f:X \to Y$ be a non-constant holomorphic map of Riemann Surfaces.  
+\begin{itemize}
+\item Given a point $x \in X$, the $k$ associated to the local expression centered at $p$ is called the \textbf{ramification index} of $f$ at $x$.
+
+\item If a point $x$ has associated $k=1$, then we say $f$ is \textbf{unramified} at $x$.
+
+\item A point $x$ such that $k \geq 2$ is called a \textbf{ramification point}. The \textbf{ramification locus} is the subset of $X$ consisting of all ramification points.
+
+\item If $x$ is a ramification point, then $f(x)\in Y$ is called a \textbf{branch point}. The \textbf{branch locus} is the subset of $Y$ consisting of all branch points - it is the image via $f$ of the ramification locus.
+\end{itemize}
+\end{definition}
+
+
+%fig
+\missingfigure{Figure 11 - Pic of a Ramified Cover}
+\begin{figure}
+\label{ramifiedCoverFigure}
+\end{figure}
+
+\begin{remark}
+We have that $x \in X$ is associated to $k=1$ iff $f$ is locally invertible at $x$ iff $f'(x) \neq 0$
+\end{remark}
+\todo[inline]{We haven't defined what $f'$ is for a map of Riemann Surfaces}
+
+\begin{exercise}
+\label{discreteRamExercise}
+Let $f:X \to Y$ be a non-constant holomorphic map of Riemann Surfaces. Suppose the ramification index of $x_0\in X$ is $k_0$. Show that there is a neighborhood $U_0$ of $x_0$ such that the ramification of each $x\in U$ with $x\neq x_0$ is $k=1$.
+\end{exercise}
+
+As an immediate consequence of Exercise \ref{discreteRamExercise} we have the following result.
+
+\begin{corollary}
+The ramification locus $R$ is a discrete subset of $X$, i.e. there exist open sets $U_i \subset X$ such that each $U_i$ contains at most one $x \in R$ 
+\end{corollary}
+
+If $X$ was compact and had infinitely many ramification points for a map $f$, then the ramification points would have a limit point in $X$ (Does this seem strange to you? If so, try and prove it!). This would violate the discreteness of $R$ and so we have the following corollary. 
+ 
+\begin{corollary}
+\label{finiteRamification}
+If $X$ is a compact Riemann Surface and $f:X \to Y$ is a holomorphic map of Riemann Surfaces, then the ramification locus is a finite set. Since the branch locus is the image of $R$ via $f$, it follows that the branch locus is also a finite set.
+\end{corollary}
+
+\noindent\textbf{Warning!} The branch locus is the image of the ramification locus, \textit{but} the ramification locus is not necessarily the inverse image of the branch locus. The point is that it is possible to have $x_1$ associated to $k_1 = 1$ and $x_2$ associated to $k_2 \geq 2$ with $f(x_1) = f(x_2)$.
+
+
+Besides having nice local expressions, the images of holomorphic maps $f:X \to Y$ are also well-structured. For example, the next theorem shows that, if $X$ is compact, then such a map $f$ either ``hits'' all of $Y$ or just one point in $Y$.
+
+\begin{theorem}
+Let $f:X \to Y$ be a holomorphic map of Riemann Surfaces with $X$ compact. If $f$ is non-constant then it is onto.
+\end{theorem}
+\todo[inline]{Say anything about the proof? It's short (see pg 41 of Miranda), but I'm not sure if saying it here would be good, or giving it as an exercise - it requires knowing that a compact subset of a Hausdorff space is closed.... perhaps a little esoteric for our readers? -- I think we could also list this as a consequence of Thm \ref{degreeThm} if we wanted...}
+
+A relatively fast corollary of holomorphic maps $f:X \to Y$ having local expressions of the form $z \mapsto z^k$ for each $x \in X$ is that for each $x$ there is a neighborhood $U$ of $x$ such that, in $U$, there are no other preimages of $f(x)$, i.e. such that $U \cap f^{-1}(f(x))= \varnothing$. Hence, for any $y \in Y$ the preimage set $f^{-1}(y)$ is discrete, and if $X$ is compact, then (as in Corollary \ref{finiteRamification}) we have that $f^{-1}(y)$ is a finite set. The next result shows that, outside of the branch locus, the size of these preimage sets, $|f^{-1}(y)|$, are constant.
+
+\begin{theorem}
+\label{degreeThm}
+Let $f:X \to Y$ be a non-constant holomorphic map of Riemann Surfaces with $X,Y$ compact and $Y$ connected. If $y_0, y_1 \in Y$ are not in the branch locus of $f$, then $|f^{-1}(y_0)| = |f^{-1}(y_1)|=:d$. We call the number $d \geq 1$ the \textbf{degree} of $f$. 
+\end{theorem}
+\begin{exercise}
+Let's prove Theorem \ref{degreeThm}: Call the branch locus $B$. Since $B$ is finite, $Y-B$ is a connected topological space, and hence it can not have a proper subset which is both open and closed. Let $y_0\in Y-B$ and set $d:=|f^{-1}(y_0)|$.
+\begin{enumerate}
+\item Set $A = \{y \in Y-B | |f^{-1}(y)| = d\}$. Show that $A$ is open in $Y-B$ by showing that $y\in A$ implies that there is a neighborhood $y\in U \subset Y-B$ such that $u \in U$ implies that $|f^{-1}(u)| = d$. \textit{Hint: What does $y\in Y-B$ imply about the local expressions of $f$ around each $x\in f^{-1}(y)$?}
+
+\item Show that $A^c = \{y \in Y-B | |f^{-1}(y)| \neq d\}$ is open in $Y-B$.
+
+\item Deduce the statement of the theorem using 1 and 2.
+\end{enumerate}
+\end{exercise}
+
+\todo[inline]{Mention something as a remark or thm or exercise about a point being in the branch locus iff it has less than the degree of $f$ preimages?}
+
+\todo[inline]{Mention that the the sum of the ramification indices of the preimages of any $y$ is $d$? I use that in my sketch of the Riemann-Hurwitz formula}
+
+
+
+\subsection{Riemann-Hurwitz Formula}
+
+Here we give a very useful result which, for a holomorphic map $f:X \to Y$, relates the genus of $X$ to the genus of $Y$ using the ramification and degree data of $f$.
+
+\begin{theorem}[Riemann-Hurwitz Formula]
+\label{riemannHurwitzFormula}
+If $f:X \to Y$ is a non-constant, degree $d$, holomorphic map of connected compact Riemann Surfaces, then the following equation holds
+\[
+2g_X-2 = d(2g_Y-2) + \sum_{x \in X} (k_x - 1)
+\]
+where $k_x$ is the ramification index of $f$ at $x$.
+\end{theorem}
+
+Note that since $k_x-1 \neq 0$ iff $x$ is a ramification point, we could replace the the index set $X$ in the above sum with the ramification locus.
+
+\begin{proof}[Idea of the proof]
+Recall that a Riemann Surface $X$ is topologically a $g_X$-holed torus. Thus its Euler Characteristic (which can be computed using a ``good graph''\footnote{a \textit{good graph} on $X$ means a graph $\Gamma$ on $X$ such that (i) $X-\Gamma$ is homeomorphic to a disjoint union of open disks, (ii) wherever two edges cross there is a vertex, and (iii) no edges end without a vertex} on $X$) is $\chi(X) = 2-2g_X$. Thus Riemann-Hurwitz Formula asserts that $\chi(X) = d\chi(Y) - \sum_{x \in X} (k_x - 1)$.
+
+Given a good graph on $X$, the Euler Characteristic is computed as $\chi(X) = |V|-|E|+|F|$ where $V$ is the number of vertices on the graph, $E$ the number of edges, and $F$ the number of faces. Our strategy is to take a particular good graph on $Y$ and ``lift'' it to a good graph on $X$ which we use to compute $\chi(X)$.
+
+To begin, choose a good graph $\Gamma_Y$ on $Y$ which has vertices only at the branch points of $f$. Say the graph has $V_Y$ vertices, $E_Y$ edges, and $F_Y$ faces. Now ``lift'' $\Gamma_Y$ using the map $f$ to get a good graph $\Gamma_X$ on $X$- by ``lift'' we mean that the vertices $V_X$ are the preimages of the vertices of $\Gamma_Y$, the edges $E_X$ are the preimages of the edges of $\Gamma_Y$, and similarly for the faces.
+
+We now relate $\Gamma_X$ to $\Gamma_Y$. If $\Gamma_Y$ had a vertex at a point \textit{not} in the branch locus, then there would be $d$ vertices above it in $\Gamma_X$. However, we have chosen the vertices of $\Gamma_Y$ to be the branch locus, and for each ramification point above, we lose some preimages. Specifically, if the ramification index of $x$ is $k_x$, then we have lost $k_x-1$ preimages of $f(x)$ from the ``expected'' $d$. Taking our expected number of preimages and subtracting off our ``lost'' preimages due to ramification gives $|V_X| = d|V_Y| - \sum_{x \in X} (k_x - 1)$.
+
+We may think of the edges and faces of $\Gamma_Y$ as living in $Y-B$ and thus nothing is ``lost'' in the lift, i.e. each has $d$ preimages. We thus have $|E_X| = d|E_Y|$ and $|F_X| = d|F_Y|$. See Figure \ref{illustrationOfRHFormula}
+
+Finally, computing $\chi(X)$ using $\Gamma_X$ gives
+\begin{align*}
+\chi(X) &= |V_X|-|E_X|+|F_X| \\
+&= d|V_Y| - \sum_{x \in X} (k_x - 1) - d|E_Y| + d|F_Y| \\
+&= d(|V_Y|-|E_Y|+|F_Y|) - \sum_{x \in X} (k_x - 1) \\
+&= d\chi(Y) - \sum_{x \in X} (k_x - 1)
+\end{align*}
+\end{proof}
+
+\missingfigure{Figure 12 - Lifting the graph on $Y$}
+\begin{figure}
+\label{illustrationOfRHFormula}
+\end{figure}
+
+
+\begin{remark}
+We emphasize that the Riemann-Hurwitz Formula only applies if $X$ and $Y$ are connected, compact Riemann Surfaces. Also, it is common to also use the notation $v_x := k_x - 1$. Note that $v_x$ is exactly how many preimages of $f(x)$ are ``lost'' at due to the ramification at $x$.
+\end{remark}
+
+Often times one has a partial knowledge of the genus and ramification data of a map $f$ and then uses the Riemann-Hurwitz Formula to deduce the rest of the information. This is the case in the next example.
+
+\begin{example}
+\label{twoPointsFullRamExample}
+Let $f:X \to Y$ be a degree $d$ holomorphic map with $X=Y=\PoneC$. Suppose that $r_1,r_2 \in X$ have full ramification, i.e. $k_1 = k_2 = d$  where we set $k_{r_i}=: k_i$. One can ask ``Can there be any other ramification points?'' We use the Riemann-Hurwitz Formula to answer this.
+
+Noting that $g_X=g_Y=0$, we have 
+\begin{align*}
+2g_X-2 &= d(2g_Y-2) + \sum_{x \in X} (k_x-1) \\
+-2 &= d(-2) + (k_1-1) + (k_2-1) + \sum_{x \neq r_1,r_2} (k_x-1) \\
+-2 &= d(-2) + (d-1) + (d-1) + \sum_{x \neq r_1,r_2} (k_x-1) \\
+0 &= \sum_{x \neq r_1,r_2} (k_x-1)
+\end{align*}
+So each $x\neq r_1,r_2$ must have $k_x = 1$. Thus, the answer to our question is ``no,'' there can be no other ramification points.
+\end{example}
+
+\begin{exercise}
+\label{twoPointsFullRamGone}
+Start with the setup of Example \ref{twoPointsFullRamExample} except suppose that $X$ now has genus $g_X=1$. Can there be any other ramification points besides $r_1,r_2$? If so, describe what kind of ramification is possible.
+\end{exercise}
+
+Note that in Example \ref{twoPointsFullRamExample} and Exercise \ref{twoPointsFullRamGone} we are not constructing holomorphic maps - we are simply determining what ramification is necessary for a holomorphic map $f$ to even be possible.
+
+\begin{exercise}
+Suppose that $f:X \to Y$ is a non-constant holomorphic map of connected compact Riemann Surfaces.
+\begin{enumerate}
+\item Show that $\sum_{x \in X} v_x$ is even.
+\item Show that $g_X \geq g_Y$. This means that $X$ can never map (non-trivially) to a $Y$ with higher genus.
+\end{enumerate}
+\end{exercise}
+
+
+\section{More Examples of Holomorphic Maps}
+
+\subsection{Elliptic and Hyperelliptic Curves}
+\begin{example}
+\label{hyperellipticCurveExample}
+A Riemann Surface is called \textbf{hyperelliptic} if it admits a holomorphic map $f$ to $\PoneC$ of degree 2. Applying the Riemann-Hurwitz Formula to $f$ gives
+$2g_X-2 = 2(-2) + \sum_{x \in X} v_x$ and thus $\sum_{x \in X} v_x = 2g_X+2$.
+
+Since the degree of $f$ is $2$, a point $x \in X$ is a ramification point iff $k_x = 2$ (i.e. if $v_x = 1$). Then $\sum_{x \in X} v_x = 2g_X+2$ implies that $f$ has $2g_X + 2$ distinct ramification points. It also follows that there are $2g_x+2$ distinct branch points in $\PoneC$ - do you see why? If not, prove it!
+\end{example}
+
+\todo[inline]{I technically only defined a hyperell. Riemann Surface, not a hyperell. curve - is this ok or do we want to change something? Also, by this def $\PoneC$ is hyperelliptic - is that ok?}
+
+\begin{example}
+\label{ellipticCurveExample}
+Define the curve $E_1\subset \bC^2$ by $y^2 = (x-a_1)(x-a_2)(x-a_3)$ where the $a_i \in \bC$ are distinct. In the language of Example \ref{smoothCurveExample} we have $E_1 = V( y^2 - (x-a_1)(x-a_2)(x-a_3))$.
+
+\begin{exercise}
+Show that $E_1$ is a smooth curve iff the $a_i$ are all distinct.
+\end{exercise}
+
+\missingfigure{Figure 13 - a schematic graph of an elliptic curve}
+\begin{figure}
+\label{ellipticCurveGraph}
+\end{figure}
+
+
+We have a map $\pi:E_1 \to \bC$ defined by $\pi: (x,y) \mapsto x$. Because $\pi$ is simply a projection from a smooth curve, it is a holomorphic map of Riemann Surfaces: to be more precise, if $(x,y)\in E_1$ has $y\neq 0$ then near $(x,y)$ the map $\pi$ is the local coordinate function $\varphi_{(x,y)}$, and thus has local expression $z \mapsto z$ (which is holomorphic). Note that this shows $\pi$ is unramified at $(x,y)$.
+%
+%\begin{exercise}
+%Prove the last statement by proving the following more general statements. Let $X$ be a Riemann Surface and $(U_x, \varphi_x)$ a chart around $x \in X$.
+%\begin{enumerate}
+%\item Construct an atlas on $U_x$ so that $U_x$ is a ``sub-Riemann Surface'' of $X$
+%
+%\item Show that $\varphi_x:U_x \to \bC$ is a holomorphic map of Riemann Surfaces.
+%\end{enumerate}
+%\end{exercise}
+
+If instead our point is $(x,0) \in E_1$, then we have a chart $(U,\varphi)$ around $(x,0)$ which realizes $U$ as the graph of $x=g(y)$ for some holomorphic function $g$ (this is how we gave curves in $\bC^2$ the structure of Riemann Surfaces in Example \ref{smoothCurveExample}). In these coordinates, we have $\pi=g$ and hence $\pi$ is holomorphic at $(x,0)$. These considerations show that $\pi$ is a holomorphic map of Riemann Surfaces. 
+
+%%%%% be more rigorous than that??
+
+For $x_0 \neq a_i$ for any $i$ then $|\pi^{-1}(x_0)|=2$ - can you see why? If not, prove it! Hence $|\pi^{-1}(a_i)|=1$ implies that $(a_i,0)$ are ramification points of $E_1$ of index $2$.
+
+As it stands, $E_1$ is not compact, but we can compactify it by placing $E_1$ in $\PtwoC$ and seeing what extra points ``at infinity'' $E_1$ picks up. (We've seen this idea of adding points to something to compactify before: taking $\bC$ and wrapping it up with an extra point $\infty$ gives $\PoneC$, the Riemann Sphere!)
+
+The process of taking the (affine curve) $E_1$ and compactifying it inside $\PtwoC$ so that we get a compact (projective) curve $E \supset E_1$ is called \textbf{homogenization}. To get the defining equation for $E \subset \PtwoC$ we simply introduce a new variable $z$ to $x$ and $y$ and use $z$ to make every term in the equation for $E_1$ homogeneous, i.e. of the same degree. Since $(x-a_1)(x-a_2)(x-a_3)$ is a degree 3 polynomial, we have $E = \{y^2z = (x-a_1z)(x-a_2z)(x-a_3z)\}$, i.e. $E = \{[x:y:z]\in \PtwoC |y^2z - (x-a_1z)(x-a_2z)(x-a_3z)=0\}$. Notice that $E$ restricted to the patch of $\PtwoC$ with $z=1$ is $E_1\subset \bC^2$.
+
+The points ``at infinity'' that we have added to $E_1$ to get $E$ are those points $[x:y:z] \in \PtwoC$ with $z=0$. Plugging in $z=0$ to the defining equation of $E$ gives $x=0$ and thus there is just one point ``at infinity,'' namely $[0:1:0]$. Let us call this point $\infty$, so that as a set, $E = E_1 \cup \{\infty\}$. We call $E$ an \textbf{elliptic curve}.
+
+We can extend the holomorphic map $\pi:E_1 \to \bC$ to a holomorphic map $\pi:E \to \PoneC$ by sending $\infty \mapsto \infty$. The result is a holomorphic map of degree 2 of connected compact Riemann Surfaces.
+
+\begin{exercise}
+\label{ellipticCurveRamificationEx}
+Use the Riemann Hurwitz Formula to show that $\infty \in E$ is a ramification point of $\pi$ and that $g_E = 1$.
+\end{exercise}
+\end{example}
+
+\todo[inline]{Should we say more about why the extended $\pi$ is holomorphic, or mention that we're not going to explicitly show that?}
+
+
+\begin{remark}
+We have actually seen elliptic curves before - as complex tori! (Quick sanity check: what is the genus of each?) For any complex torus $T$, there is an equation which realizes $T$ as an elliptic curve $E \cong T$, and vice versa. Algebraically minded people tend to favor thinking of them as elliptic curves, while complex analytic minded people prefer complex tori, but they're both equivalent!
+\end{remark}
+\todo[inline]{Renzo, I'm sure you can make this remark much better/true than I have.}
+
+
+\begin{exercise}
+A nonconstant holomorphic map between complex tori $\tilde{f}: \bC/\Lambda \to \bC/\Lambda'$ is called an \textbf{isogeny}. One way to construct an isogeny is to create a holomorphic map $f:\bC \to \bC$ which is well-defined when we mod out by the lattices, i.e. such that for any $z \in \bC$ and any $l \in \Lambda$ we have $f(z+l) = f(z) + l'$ for some $l' \in Lambda'$.
+
+It can be shown (without an excessive amount of trouble - see MIRANDA) that every isogeny is induced by a map $f(z) = az+b$ where $a,b \in \bC$ and $a\Lambda \subset \Lambda'$.
+
+\begin{enumerate}
+\item Show that any isogeny $f$ is unramified.
+
+\item Consider the isogeny $\tilde{f}:\bC/\Lambda \to \bC/\Lambda'$ induced by $f(z) = z+1$, where $\Lambda = \{n+m(1+i)|n,m \in \bZ\}$ and $\Lambda' = \{n(1/2)+m(1/2+i/2)|n,m \in \bZ\}$. Find the degree of $\tilde{f}$.
+
+\item Let $D$ be the set of $d \geq 1$ such that there is an isogeny of degree $d$. Is $D = \bZ_{\geq 1}$?
+\end{enumerate}
+\end{exercise}
+
+
+
+\subsection{Maps from $\PoneC$ to $\PoneC$}
+
+\begin{example}
+In Exercise \ref{polynomialMapsOfPoneC} it is essentially shown that any polynomial $p(x) \in \bC[x]$ gives a holomorphic map $p:\PoneC \to \PoneC$ by the rule $x \in \bC \mapsto p(x)$ and $\infty \mapsto \infty$. But what about a function with poles - something like $\tilde{p}(x) = 1/x$? Well, ever since kindergarten we've wanted to say that $1/0 = \infty$ and $1/\infty = 0$, and this is exactly what makes $\tilde{p}:\PoneC \to \PoneC$ a holomorphic map! In other words, we have $\tilde{p}:0 \mapsto \infty, \infty \mapsto 0$, and $x \mapsto \tilde{p}(x)$ for $x \neq 0, \infty$.
+
+\begin{exercise}
+\label{oneOverXCubedExercise}
+Let $\tilde{q}(x) = 1/x^3$. Show that the induced map $\tilde{q}:\PoneC \to \PoneC$ is holomorphic.
+\end{exercise}
+
+One similarly obtains a holomorphic map $f=p/q:\PoneC \to \PoneC$ from any rational function $p(x)/q(x)$ where $p(x),q(x) \in \bC[x]$ have no common roots.
+
+\begin{remark}
+\label{rationalFunctionsAreP1Maps}
+One can show (without an excessive amount of work - see MIRANDA Theorem 2.1) that \textit{any} holomorphic map $f:\PoneC \to \PoneC$ can be written as a rational function $f=p(x)/q(x)$ where $p(x),q(x) \in \bC[x]$ have no common roots.
+\end{remark}
+
+
+Let us consider which of these rational functions are automorphisms of $\PoneC$. We have already encountered one - namely $f=\tilde{p}(x)=1/x$. This map essentially turns the Riemann Sphere upside down. Are there any other automorphisms?
+
+Recall that an automorphism must in particular be a one-to-one function, but our map $f$ has a zero at each root of $p(x)$ and a pole (i.e. preimage of $\infty$) at each root of $q(x)$. Hence for $f$ to be one-to-one, $p(x)$ and $q(x)$ must each only have one root. Thus we have
+\[
+f = \frac{p(x)}{q(x)}=\frac{a(x-a_1)^n}{c(x-c_1)^m}
+\]
+where $a,a_1,c,c_1 \in \bC$ and $a_1 \neq c_1$.
+
+At $x=a_1$ the map $f$ will have local expression $z \mapsto z^n$ and at $x=c_1$ the local expression will be $z \mapsto z^m$. \todo[inline]{I don't actually prove this - is that ok?} These are $n$-to-one and $m$-to-one maps, respectively, and so if we want $f$ to be one-to-one, we must have $n=m=1$, i.e.
+\[
+f = \frac{p(x)}{q(x)}=\frac{ax+b}{cx+d}
+\]
+for $a,b,c,d \in \bC$. Let us now see which of these $f$'s are automorphisms.
+
+\begin{exercise}
+\label{mobiusTransExercise}
+Let $f:\PoneC \to \PoneC$ be the map induced by $(ax+b)/(cx+d)$ for $a,b,c,d \in \bC$. Suppose that $ad-bc \neq 0$.
+\begin{enumerate}
+
+\item Show that $f$ is one-to-one. 
+\item Show that $f$ is onto.
+\item Show that $f^{-1}:\PoneC \to \PoneC$ is a holomorphic map.
+\item Consider enough cases where $ad-bc=0$ to convince yourself that 1, 2, and 3 are false when $ad-bc=0$.
+\end{enumerate}
+These maps $f$ with $ad-bc \neq 0$ are called \textbf{M\"{o}bius transformations} and, in light of Remark \ref{rationalFunctionsAreP1Maps}, are \textit{all} of the automorphisms of $\PoneC$.
+\end{exercise}
+\end{example}
+
+\noindent\hrulefill
+
+\begin{remark}
+\label{mobiusFromLinearMaps}
+One can arrive at the M\"{o}bius transformations in another way. If we think of $\PoneC = (\bC^2 - \{\vec{0}\})/{\bC^\star}$ then we may induce an automorphism of $\PoneC$ from a linear automorphism of $\bC^2$, i.e. an element $M \in \text{GL}(2,\bC)$ where
+\[
+\text{GL}(2,\bC) = \{\left(\begin{array}{cc}
+a &b\\
+c &d\\
+\end{array}\right)| a,b,c,d \in \bC \text{ with } ad-bc \neq 0\}
+\]
+If we associate the vector $\vec{x}=(x, y)^T$ to the homogeneous coordinates $[x:y]$ then $M\vec{x} = (ax + by, cx + dy)^T$ implies that $M$ sends $[x:y]$ to $[ax + by : cx + dy]$. Writing the local expression of $M$ using the charts where the second homogeneous coordinate is non-zero gives $[x:1] \mapsto [(ax+b)/(cx+d):1]$ so we see that $M$ is a M\"{o}bius transformation.
+\end{remark}
+\todo[inline]{Remark \ref{mobiusFromLinearMaps} (especially the local expression bit at the end) feels pretty rough...}
+
+
+\todo[inline]{I've decided to leave out showing that conics are all isomorphic to $\PoneC$ - do you think we need it? If you think we should put it in, how should we go about showing that?}
+
+
+
+
+
+
+\chapter{Covering Theory}
+\label{coveringTheory}
+
+\begin{itemize}
+\item homotopy of functions
+\item fundamental group
+\item examples
+\item covering spaces
+\begin{itemize}
+\item examples
+\item connection with fundamental group
+\item universal covers
+\end{itemize}
+\end{itemize}
+
+
+\begin{lemma}[Paths lift]
+\label{pathsLiftLemma}
+Paths lift
+\end{lemma}
+
+\begin{lemma}[Homotopies of paths lift]
+\label{homotopiesPathsLiftLemma}
+Homotopies of paths lift
+\end{lemma}
+
+
+
+
+\chapter{Counting Covers}
+\label{countingCovers}
+
+
+\section{Hurwitz Numbers as Counting Maps}
+
+``How many \rule{.7in}{0.4pt} are there?'' is a simple and natural question which often leads to rich mathematics. From comparing infinite sets (does $\bZ$ or $\bQ$ have ``more'' elements?), to counting the roots of polynomials (should the root of $p(x)=x^2$ at $x=0$ count as one root or two?), enumerating a certain class of ``things'' is often an interesting endeavor.
+
+Hurwitz theory counts the number of holomorphic maps between Riemann Surfaces. We have seen that these maps have a strong structure (e.g. they are either constant or onto, and have $z\mapsto z^k$ local expression) and so perhaps it is not surprising that there are not that many of them. More specifically, after choosing invariants (genera of domain and target, degree and ramification of map) so that the Riemann-Hurwitz Formula is satisfied, there are only a \textit{finite} number of maps whose domain and target have the specified genera, and have the specified degree and ramification profile.
+
+As with the example of counting roots of polynomials (we \textit{do} want to count the root of $p(x)$ as a ``double root'') we want to be careful how we count such maps. For us this means that we do not want to double-count \textit{isomorphic} maps, and we want to weight the maps we do count by their \textit{automorphisms}. So far isomorphisms and automorphisms have described relationships between Riemann Surfaces, but we now use these terms to describe relationships between \textit{maps} of Riemann Surfaces. 
+
+\begin{definition}
+Two holomorphic maps of Riemann Surfaces $f:X \to Y$ and $g:\tilde{X} \to Y$ are called isomorphic, if there is an isomorphism $\phi:X \to \tilde{X}$ such that $f=g \circ \phi$. An automorphism of $f:X \to Y$ is an automorphism $\psi:X \to X$ such that $f = f \circ \psi$. The group of automorphisms of $f$ is denoted $\text{Aut}(f)$.
+\end{definition}
+
+Note that if $f$ and $g$ are isomorphic maps via $\phi$, then $\phi$ respects pre-images, i.e. for any $y\in Y$ the map $\phi$ gives a bijection $\phi:f^{-1}(y) \to g^{-1}(y)$.
+
+\begin{exercise}
+\label{involutionOfEllCurve}
+Consider a curve $E_1 = V( y^2 - (x-a_1)(x-a_2)(x-a_3)) \subset \bC^2$ with the $a_i \in \bC$ distinct. From Example \ref{ellipticCurveExample} we know that the map $\pi: E_1 \to \bC$ defined by $(x,y) \mapsto x$ is a holomorphic map. Show that the map $\sigma:E_1 \to E_1$ defined by $(x,y) \mapsto (x, -y)$ gives an automorphism of $E_1$.
+\end{exercise}
+
+\begin{exercise}
+Show that $\text{Aut}(f)$ is a group under the operation of function composition.
+\end{exercise}
+
+When enumerating maps of Riemann Surfaces, we only want to count each isomorphism class of maps once (as an analogy, if we were counting groups of order two, we would not want to count $(\bZ/{2\bZ}, +)$ and $(\{-1,1\}, \times)$ as different groups).
+
+Also, given a representative $f$ of an isomorphism class of maps, we want to weight its addition to our count by the size of $\text{Aut}(f)$. Using the philosophy that more automorphisms should make something count for less, we will divide by $|\text{Aut}(f)|$. (Note that this contrasts with the polynomial root example, where we have special cases where a root counts for more, but never less.) After two quick definitions, we are ready to formally define Hurwitz numbers.
+
+\begin{definition}
+Let $d>0$ be an integer. A \textbf{partition} of $d$ is a tuple of positive integers $\eta = (k_1, k_2, \ldots)$ such that $d = \sum k_i$ and $k_i \geq k_{i+1}$ for all $i$. For example, $(3)$ and $(2,1)$ are both partitions of $d=3$. We may equivalently define a partition of $d$ as a subset $\eta \subset \bZ_{>0}$ such that $\sum_{k\in \eta} k = d$.
+\end{definition}
+
+\begin{exercise}
+Write down all the partitions of $3, 4$ and $5$.
+\end{exercise}
+
+\begin{definition}
+Let $f:X \to Y$ be a holomorphic map of Riemann Surfaces of degree $d$, and let $y \in Y$ and $f^{-1}(y) = \{x_1,\ldots,  x_n\}$. We call the set $\{k_{x_1},\ldots, k_{x_n}\}$ the \textbf{ramification profile} of $f$ at $y$. Note that the ramification profile of $f$ at $y$ is a partition of $d$.
+\end{definition}
+
+\begin{exercise}
+Consider the holomorphic map $p:\PoneC \to \PoneC$ given by the polynomial $p(x) = x^3$. Write the ramification profile of $p$ at $0, 9, 1+i$ and $\infty$.
+\end{exercise}
+
+\begin{definition}[Hurwitz number]
+\label{hurwitzNumberTake1}
+Let $Y$ be a Riemann Surface of genus $h$. Choose points $p_1, \ldots, p_s \in Y$ and an unordered set of $r$ points $Q \subset Y$. Let $\eta_1,\ldots,\eta_s$ be partitions of a positive integer $d$. We define the \textbf{Hurwitz number} as
+\begin{equation}
+\label{hurwitzNumberTake1Eqn}
+H^r_{g\to h, d}(\eta_1,\ldots,\eta_s) = \sum_f \frac{1}{|\text{Aut}(f)|}
+\end{equation}
+
+\noindent where the sum in \ref{hurwitzNumberTake1Eqn} runs over each isomorphism class of $f:X \to Y$ where
+\begin{enumerate}
+\item $f$ is a holomorphic map of Riemann Surfaces
+\item $X$ is connected and has genus $g$
+\item the branch locus of $f$ is $\{p_i\}_i \cup Q$
+\item the ramification profile of $f$ at $p_i$ is $\eta_i$
+\item the ramification profile of $f$ at each $q \in Q$ is $(2,1,\ldots,1)$ (this is called \textbf{simple ramification})
+\end{enumerate}
+\noindent We call a map $f$ satisfying 1-5 a \textbf{good map}.
+\end{definition}
+
+
+Note that if the invariants $g, h, d, r, \eta_1, \ldots, \eta_s$ do not satisfy the Riemann-Hurwitz Formula, then $H^r_{g\to h, d}(\eta_1,\ldots,\eta_s) = 0$.
+
+\section{First Examples of Hurwitz Numbers}
+\begin{example}
+Let $Y=\PoneC$ and set $p_1 = 0, p_2 = \infty$ and $Q = \varnothing$. Choose $d>0$ and let $\eta_1 = \eta_2 = (d)$. We compute $H^0_{0\to 0, d}((d),(d))$. (Take a moment to verify that these invariants satisfy the Riemann-Hurwitz Formula.)
+
+Example \ref{xSquaredOnP1C} shows that $p(x) = x^d$ gives a holomorphic map $p:\PoneC \to \PoneC$ (actually it only treats the case $d=2$ but the general case is shown in exactly the same way). Moreover, $p$ is ramified only over $0$ and $\infty$ and has ramification profile $(d)$ there. Thus we count $p$ when computing the Hurwitz number, i.e. $p$ is a ``good map.'' We will show that any good map $f:X \to \PoneC$ is isomorphic to $p$, so that $p$ is the only map we need to consider for computing the Hurwitz Number.
+
+A fact that we will not prove is that any Riemann Surface of genus 0 is isomorphic to $\PoneC$. Thus a good map is first of all a holomorphic map $f:\PoneC \to \PoneC$ and so $f$ is a rational function by Remark \ref{rationalFunctionsAreP1Maps}.
+
+A good map has degree $d$ and is ramified only at $r_1,r_2$ where $f(r_1) = 0, f(r_2) = \infty$, both with ramification index $d$. Assuming that neither $r_1$ nor $r_2$ is $\infty$, we have $f = b(x-r_1)^d/(x-r_2)^d$ for some $0\neq b \in \bC$. (We leave the case that one of $r_1,r_2$ is $\infty$ as an exercise.)
+
+To show that the map $f$ is isomorphic to $p$, we must construct an isomorphism of Riemann Surfaces $\phi:\PoneC \to \PoneC$ such that $f = p \circ \phi$. Thus $\phi$ is a M\"{o}bius transformation (see Exercise \ref{mobiusTransExercise}) which, in particular, sends $r_1 \mapsto 0$ and $r_2 \mapsto \infty$, i.e. we have $\phi = a(x-r_1)/(x-r_2)$ for some $0\neq a \in \bC$.
+
+The equation $f = p \circ \phi$ is
+\[
+b\frac{(x-r_1)^d}{(x-r_1)^d} = \left(a\frac{x-r_1}{x-r_1}\right)^d
+\]
+which is satisfied by any choice of $a:=b^{1/d}$. Thus $f$ is isomorphic to $p$ via $\phi$, and we have only one isomorphism class of good maps to consider to compute the Hurwitz number. What's left is to compute $|\textbf{Aut}(p)|$.
+
+\begin{exercise}
+\label{autOfP}
+Let $p:\PoneC \to \PoneC$ be the (above) map given by $p(x) = x^d$. Show that $\text{Aut}(p) = \{ \tilde{\phi}= cx | c = 1^{1/d}\}$. 
+\end{exercise}
+Exercise \ref{autOfP} implies that $|\textbf{Aut}(p)| = d$ and so $H^0_{0\to 0, d}((d),(d)) = 1/d$.
+\end{example}
+
+\noindent\hrulefill
+
+\begin{example}
+Let $E$ be an elliptic curve. In Example \ref{ellipticCurveExample} we saw that $E$ has a degree 2 projection $\pi:E \to \PoneC$, and Exercise \ref{ellipticCurveRamificationEx} shows that $E$ has genus 1 and that $f$ is ramified at $4=2*1+2$ points. Thus $\pi$ is a good map for computing the Hurwitz number $H^4_{1\to 0,2}$, which we now compute.
+
+We state without proof that any good map for this Hurwitz number is isomorphic to $\pi$, so all we must determine is $\text{Aut}(\pi)$. We show via path lifting that any $\phi \in \text{Aut}(f)$ is completely determined by its action on an unramified $x \in E$.
+
+Let $\phi:X \to Y$, with $X=Y=E$, be an automorphism of $f$ and let $R\subset X$ be the ramification locus of $f$. If $x \in R$ then we must have $\phi:x \mapsto x$, as $\pi^{-1}(\pi(x)) = \{x\}$.
+
+\begin{exercise}
+\label{constructingAutViaLifting}
+Choose an $x_0  \in E - R$ and set $\phi(x_0)=p$ where $p \in \pi^{-1}(\pi(x_0))$. Let $x_0 \neq x \in X - R$, and let $\gamma:[0,1] \to X - R$ be any path from $x_0$ to $x$, i.e. $\gamma(0) = x_0$ and $\gamma(1)=x$. 
+\begin{enumerate}
+\item Show that $\tilde{\gamma} = \phi \circ \gamma$ where $\tilde{\gamma}$ is the lift of the path $\pi \circ \gamma$ to $Y$ such that $\tilde{\gamma}(0) = p$.
+
+\item Conclude that $\tilde{\gamma}(1) = \phi(x)$.
+\end{enumerate}
+\end{exercise}
+
+Exercise \ref{constructingAutViaLifting} shows that once $\phi(x_0)=p$ is chosen for an unramified $x_0$, the images of all other unramified $x\in X$ are determined - to determine $\phi(x)$ follow these steps: (1) take any path $\gamma$ from $x_0$ to $x$ in $X$, (2) push the path down to $\PoneC$ via $\pi$, (3) lift that path to a path $\tilde{\gamma}$ in $Y$ starting at $p$, (4) wherever $\tilde{\gamma}$ ends is/must be $\phi(x)$. And since there is no choice for the image of a ramification point, $\phi$ is then completely determined.
+
+Now, for $x \in E - R$ we have $|\pi^{-1}(\pi(x))| = 2$, so there are at most two automorphisms of $\pi$ (one that sends $x \mapsto x$ and one that sends $x \mapsto y \neq x$). Since the identity map $I_E$ and the involution $\sigma$ (which can be obtained by extending the automorphism $\sigma$ given in Exercise \ref{involutionOfEllCurve}) are two different automorphisms of $\pi$ we have $|\text{Aut}(\pi)|=2$ and thus $H^4_{1\to 0,2} = 1/2$.
+\end{example}
+
+\todo[inline]{Is there a nice way to see that any other good map $f$ is isomorphic to our $\pi$?}
+
+\todo[inline]{Would it be helpful at all to mention the fact that our arguments in Exercise \ref{constructingAutViaLifting} show that any automorphism of a map of Riemann Surfaces $f:X \to Y$ is completely determined ON UNRAMIFIED POINTS by its action on one unramified $x$? or would that just be confusing and unnecessary? }
+
+
+
+
+\chapter{Counting Covers in New Ways}
+\begin{itemize}
+\item RET
+\item count maps / count covers / count mono reps
+\item mono rep def
+\item counting thm
+\item examples in low degree
+\end{itemize}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section*{Acknowledgements}
+%Here are our acknowledgements.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\bibliographystyle{alphaurl}
+%\bibliography{references}
+
+\appendix
+\chapter{Classification of Compact, Connected Topological Surfaces}
+\label{classificationOfSurfaces}
+
+
+\end{document}
+
+
+
+
+
